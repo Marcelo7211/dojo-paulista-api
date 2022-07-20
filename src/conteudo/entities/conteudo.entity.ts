@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { IsNotEmpty } from "class-validator"
 
 @Entity({ name: 'tb_conteudo' })
@@ -10,12 +10,15 @@ export class Conteudo {
     id: number
 
     @IsNotEmpty()
-    @ApiProperty() 
+    @ApiProperty()
+    @Column() 
     nome: string;
     
-    @ApiProperty() 
+    @ApiProperty()
+    @Column() 
     imagem: string;
 
-    @ApiProperty() 
+    @ApiProperty()
+    @Column() 
     rota: string;
 }

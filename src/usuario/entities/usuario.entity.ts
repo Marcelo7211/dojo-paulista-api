@@ -68,11 +68,11 @@ export default class Usuario {
     @Column({ nullable: true })
     responcavelCpf: string;
 
-    @Column({ nullable: false, type: 'double' })
+    @Column({ nullable: false, type: 'double precision' })
     @ApiProperty()
     peso: number;
 
-    @Column({ nullable: false, type: 'double' })
+    @Column({ nullable: false, type: 'double precision' })
     @ApiProperty()
     altura: number;
 

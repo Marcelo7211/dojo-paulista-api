@@ -1,0 +1,16 @@
+export enum TipoGraduacao {
+    BRANCA,
+    AZUL,
+    AMARELA,
+    VERMELHA,
+    LARANJA,
+    VERDE,
+    ROXA,
+    MARROM,
+    PRETA,
+    PRETA1DAN,
+    PRETA2DAN,
+    PRETA3DAN,
+    PRETA4DAN,
+    PRETA5DAN,
+}

@@ -18,6 +18,6 @@ async function bootstrap() {
 
   process.env.TZ = '-03:00';
   app.enableCors();
-  await app.listen(process.env.PORT | 3000);
+  await app.listen(parseInt(process.env.PORT) | 3000);
 }
 bootstrap();

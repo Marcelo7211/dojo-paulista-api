@@ -20,7 +20,7 @@ export class Graduacao {
     @Column({ nullable: false })
     graduacao: TipoGraduacao;
 
-    @Column({ nullable: false, type: 'double' })
+    @Column({ nullable: false, type: 'double precision' })
     @ApiProperty()
     mediaFinal: number;
 

@@ -6,7 +6,7 @@ import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 
 @ApiTags('Turma')
 @Controller('turma')
-@UseGuards(JwtAuthGuard)
+//@UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
 export class TurmaController {
   constructor(private readonly turmaService: TurmaService) {}

@@ -38,7 +38,7 @@ export default class Usuario {
     qrCode: string;
 
     @Column()
-    @IsDate()
+    //@IsDate()
     @ApiProperty()
     dataNascimento: string;
 

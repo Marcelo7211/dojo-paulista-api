@@ -6,6 +6,7 @@ import { TipoGraduacao } from "src/utilitarios/enums/TipoGraduacao";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Role } from "../../utilitarios/enums/Role";
 import { IsEmail, IsNotEmpty, IsInt, IsDate } from "class-validator"
+import {Blob} from 'buffer';
 
 @Entity({ name: 'tb_usuario' })
 export default class Usuario {
@@ -30,12 +31,12 @@ export default class Usuario {
     @ApiProperty()
     @IsNotEmpty()
     @Column({ nullable: false, type: 'blob'  })
-    foto: blob;
+    foto: Blob;
 
     @ApiProperty()
     @IsNotEmpty()
     @Column({ nullable: false, type: 'blob' })
-    qrCode: blob;
+    qrCode: Blob;
 
     @Column()
     //@IsDate()

@@ -19,11 +19,11 @@ import { ConteudoModule } from './conteudo/module/conteudo.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
+      host: 'containers-us-west-59.railway.app',
+      port: 5747,
       username: 'root',
-      password: 'Admin357/',
-      database: 'db_dojo_paulista',
+      password: 'SScdJcZ4ZmMjkaUPgW4I',
+      database: 'railway',
       entities: [
         Turma, 
         Usuario, 

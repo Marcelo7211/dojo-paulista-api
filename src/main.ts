@@ -18,6 +18,9 @@ async function bootstrap() {
 
   process.env.TZ = '-03:00';
   app.enableCors();
+
+  app.use(express.limit('5mb'));
+  
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

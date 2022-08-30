@@ -18,13 +18,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    /*TypeOrmModule.forRoot({
+    TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
+      host: 'http://31.220.57.121',
+      port: 3308,
       username: 'root',
       password: 'Admin357/',
-      database: 'db_dojo_paulista',
+      database: 'test',
       entities: [
         Turma, 
         Usuario, 
@@ -35,8 +35,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         Conteudo
       ],
       synchronize: true,
-    }),*/
-    TypeOrmModule.forRoot({
+    }),
+    /*TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DATABASE_URL,
       logging: false,
@@ -46,7 +46,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       },
       synchronize: true,
       autoLoadEntities: true,
-    }),
+    }),*/
     TurmaModule,
     UsuarioModule,
     ChamadaModule,

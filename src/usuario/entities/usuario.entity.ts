@@ -29,12 +29,12 @@ export default class Usuario {
 
     @ApiProperty()
     @IsNotEmpty()
-    @Column({ nullable: false, type: 'bytea' })
+    @Column({ nullable: false, type: 'text' })
     foto: string;
 
     @ApiProperty()
     @IsNotEmpty()
-    @Column({ nullable: false, type: 'bytea' })
+    @Column({ nullable: false, type: 'text' })
     qrCode: string;
 
     @Column()

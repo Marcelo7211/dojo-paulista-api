@@ -20,7 +20,7 @@ async function bootstrap() {
   process.env.TZ = '-03:00';
   app.enableCors();
 
-  app.use(express.limit('5mb'));
+  //app.use(express.limit('5mb'));
   app.use(json({ limit: '50mb' }));
   app.use(urlencoded({ extended: true, limit: '50mb' }));
   

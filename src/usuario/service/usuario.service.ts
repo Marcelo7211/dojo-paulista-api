@@ -27,7 +27,7 @@ export class UsuarioService {
 
   async findOneById(id: number): Promise<Usuario> {
 
-    let chamada = await this.usuarioRepository.findOne({
+    let usuario = await this.usuarioRepository.findOne({
       where: {
         id
       },
@@ -38,10 +38,29 @@ export class UsuarioService {
       }
     });
 
-    if (!chamada)
+    if (!usuario)
       throw new HttpException('Usuario não encontrada!', HttpStatus.NOT_FOUND);
 
-    return chamada;
+    return usuario;
+  }
+
+  async findOneByEmail(email: string): Promise<Usuario> {
+
+    let usuario = await this.usuarioRepository.findOne({
+      where: {
+        email
+      },
+      relations: {
+        turma: true,
+        chamada: true,
+        graduacao: true
+      }
+    });
+
+    if (!usuario)
+      throw new HttpException('Usuario não encontrada!', HttpStatus.NOT_FOUND);
+
+    return usuario;
   }
 
   async create(user: Usuario): Promise<Usuario> {

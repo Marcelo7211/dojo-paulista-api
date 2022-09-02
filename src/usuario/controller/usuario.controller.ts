@@ -34,6 +34,15 @@ export class UsuarioController {
     return this.usuarioService.findOneById(id);
   }
 
+  @Get('email/:email')
+  @HttpCode(HttpStatus.OK)
+  @ApiResponse({type: Usuario})
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  findByuser(@Param('email') email: string): Promise<Usuario> {
+    return this.usuarioService.findOneByEmail(email);
+  }
+
   @Put()
   @HttpCode(HttpStatus.OK)
   @ApiBody({ type: Usuario })

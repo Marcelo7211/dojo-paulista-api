@@ -21,8 +21,12 @@ export class UsuarioController {
   @ApiResponse({type: [Usuario]})
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  findAll(): Promise<Usuario[]> {
-    return this.usuarioService.findAll();
+  async findAll(): Promise<Usuario[]> {
+    const respo = await this.usuarioService.findAll();
+
+    console.log(respo)
+
+    return respo
   }
 
   @Get(':id')

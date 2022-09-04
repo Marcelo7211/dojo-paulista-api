@@ -30,13 +30,13 @@ export default class Usuario {
 
     @ApiProperty()
     @IsNotEmpty()
-    @Column({ nullable: false, type: 'longblob'  })
-    foto: Blob;
+    @Column({ nullable: false, type: 'longtext'  })
+    foto: string;
 
     @ApiProperty()
     @IsNotEmpty()
-    @Column({ nullable: false, type: 'longblob' })
-    qrCode: Blob;
+    @Column({ nullable: false, type: 'longtext' })
+    qrCode: string;
 
     @Column()
     //@IsDate()

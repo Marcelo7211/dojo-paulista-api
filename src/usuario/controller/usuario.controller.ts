@@ -63,6 +63,5 @@ export class UsuarioController {
         throw new HttpException('Usuario não encontrado!', HttpStatus.NOT_FOUND);
     else
         return resultadoDelete;
-
   }
 }

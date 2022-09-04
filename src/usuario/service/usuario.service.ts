@@ -52,8 +52,6 @@ export class UsuarioService {
       },
       relations: {
         turma: true,
-        chamada: true,
-        graduacao: true
       }
     });
 

@@ -50,7 +50,7 @@ export class ChamadaController {
   @HttpCode(HttpStatus.OK)
   @ApiBody({ type: Chamada }) 
   findOneByDataAndUserId(@Body() chamada: Chamada): Promise<Chamada> {
-    return this.chamadaService.findOneByDataAndIdUser(chamada.usuario.id, chamada.data);
+    return this.chamadaService.chageStatus(chamada);
   }
 
   @Put()

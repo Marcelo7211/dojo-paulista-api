@@ -57,6 +57,17 @@ export class ChamadaService {
 
   }
 
+  async chageStatus(chamada: Chamada): Promise<Chamada> {
+    let chamadaExists = await this.findOneByDataAndIdUser(chamada.usuario.id, chamada.data);
+
+    if (!chamadaExists)
+      throw new HttpException('Chamada não encontrada!', HttpStatus.NOT_FOUND);
+
+    chamadaExists.isPresente = chamada.isPresente;
+
+    return await this.update(chamadaExists)
+  }
+
   async findOneByDataAndIdUser(id: number, data: Date): Promise<Chamada> {
 
     let chamada = await this.chamadaRepository.findOne({

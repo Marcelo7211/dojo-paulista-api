@@ -105,6 +105,7 @@ export class ChamadaService {
       chamadaList.push(await this.chamadaRepository.save(c))
     })
 
+    console.log(chamadaList)
     return chamadaList;
   }
 

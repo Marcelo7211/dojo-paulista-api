@@ -11,7 +11,7 @@ export class Chamada {
     @ApiProperty()
     id: number;
 
-    @UpdateDateColumn()
+    @Column({ type: 'date'})
     @ApiProperty()
     data: Date;
 
@@ -23,7 +23,7 @@ export class Chamada {
 
     @ApiProperty()
     @IsNotEmpty()
-    @Column({ nullable: false})
+    @Column({ nullable: false}) 
     isPresente: boolean = false;
 
     @ManyToOne(() => Usuario, (usuario) => usuario.chamada, {

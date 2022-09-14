@@ -28,7 +28,7 @@ export class ChamadaController {
   @Get('allByTurma/:id/:data')
   @HttpCode(HttpStatus.OK)
   @ApiResponse({type: [Chamada]})
-  findOneByturma(@Param('id') id: number, data: Date): Promise<Chamada[]> {
+  findOneByturma(@Param('id') id: number, @Param('data') data: Date): Promise<Chamada[]> {
     return this.chamadaService.findAllByTurmaIdAndData(id, data);
   }
 

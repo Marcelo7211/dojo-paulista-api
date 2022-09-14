@@ -10,14 +10,7 @@ import { ChamadaService } from '../service/chamada.service';
 @ApiBearerAuth()
 export class ChamadaController {
   constructor(private readonly chamadaService: ChamadaService) {}
-
-  @Post()
-  @HttpCode(HttpStatus.CREATED)
-  @ApiBody({ type: Chamada })
-  create(@Body() chamada: Chamada): Promise<Chamada> {
-    return this.chamadaService.create(chamada);
-  }
-
+ 
   @Get()
   @HttpCode(HttpStatus.OK)
   @ApiResponse({type: [Chamada]})
@@ -30,6 +23,27 @@ export class ChamadaController {
   @ApiResponse({type: Chamada})
   findOne(@Param('id') id: number): Promise<Chamada> {
     return this.chamadaService.findOneById(id);
+  }
+
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
+  @ApiBody({ type: Chamada })
+  create(@Body() chamada: Chamada): Promise<Chamada> {
+    return this.chamadaService.create(chamada);
+  }
+
+  @Post('all')
+  @HttpCode(HttpStatus.CREATED)
+  @ApiBody({ type: Chamada })
+  createAll(@Body() chamada: Chamada[]): Promise<Chamada[]> {
+    return this.chamadaService.createAll(chamada);
+  }
+
+  @Put('/change')
+  @HttpCode(HttpStatus.OK)
+  @ApiBody({ type: Chamada }) 
+  findOneByDataAndUserId(@Body() chamada: Chamada): Promise<Chamada> {
+    return this.chamadaService.findOneByDataAndIdUser(chamada.usuario.id, chamada.data);
   }
 
   @Put()

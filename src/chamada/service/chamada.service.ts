@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import Usuario from 'src/usuario/entities/usuario.entity';
 import { DeleteResult, Repository } from 'typeorm';
 import { Chamada } from '../entities/chamada.entity';
 
@@ -29,6 +30,9 @@ export class ChamadaService {
           turma: {
             id: idTurma
           }
+        },
+        relations: {
+          usuario: true
         }
       }
     );
@@ -63,7 +67,7 @@ export class ChamadaService {
         data: data
       },
       relations: {
-        turma: true
+        usuario: true,
       }
     });
 

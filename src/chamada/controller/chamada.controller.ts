@@ -32,7 +32,6 @@ export class ChamadaController {
     return this.chamadaService.findAllByTurmaIdAndData(id, data);
   }
 
-
   @Post()
   @HttpCode(HttpStatus.CREATED)
   @ApiBody({ type: Chamada })

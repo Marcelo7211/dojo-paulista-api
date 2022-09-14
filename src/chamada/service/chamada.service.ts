@@ -21,6 +21,20 @@ export class ChamadaService {
     );
   }
 
+  async findAllByTurmaIdAndData(idTurma: number, data: Date): Promise<Chamada[]> {
+    return await this.chamadaRepository.find(
+      {
+        where: {
+          data: data,
+          turma: {
+            id: idTurma
+          }
+        }
+      }
+    );
+  }
+
+
   async findOneById(id: number): Promise<Chamada> {
 
     let chamada = await this.chamadaRepository.findOne({
@@ -51,6 +65,22 @@ export class ChamadaService {
       relations: {
         turma: true
       }
+    });
+
+    if (!chamada)
+      throw new HttpException('Chamada não encontrada!', HttpStatus.NOT_FOUND);
+
+    return chamada;
+
+  }
+
+  async findOneByTurmaId(turmaId: number): Promise<Chamada[]> {
+    let chamada = await this.chamadaRepository.find({
+      where: {
+        turma: {
+          id: turmaId
+        }
+      },
     });
 
     if (!chamada)

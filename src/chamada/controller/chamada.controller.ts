@@ -25,6 +25,14 @@ export class ChamadaController {
     return this.chamadaService.findOneById(id);
   }
 
+  @Get('allByTurma/:id')
+  @HttpCode(HttpStatus.OK)
+  @ApiResponse({type: [Chamada]})
+  findOneByturma(@Param('id') id: number, data: Date): Promise<Chamada[]> {
+    return this.chamadaService.findAllByTurmaIdAndData(id, data);
+  }
+
+
   @Post()
   @HttpCode(HttpStatus.CREATED)
   @ApiBody({ type: Chamada })
@@ -34,7 +42,7 @@ export class ChamadaController {
 
   @Post('all')
   @HttpCode(HttpStatus.CREATED)
-  @ApiBody({ type: Chamada })
+  @ApiBody({ type: [Chamada] })
   createAll(@Body() chamada: Chamada[]): Promise<Chamada[]> {
     return this.chamadaService.createAll(chamada);
   }

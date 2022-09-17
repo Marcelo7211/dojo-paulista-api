@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Bcrypt } from 'src/auth/bcrypt/bcrypt';
-import { DeleteResult, Repository } from 'typeorm';
+import { DeleteResult, Repository, ILike } from 'typeorm';
 import Usuario from '../entities/usuario.entity';
 
 
@@ -42,6 +42,19 @@ export class UsuarioService {
       throw new HttpException('Usuario não encontrada!', HttpStatus.NOT_FOUND);
 
     return usuario;
+  }
+
+  async findAllByLikeName(nome: string): Promise<Usuario[]> {
+    let usuarios = await this.usuarioRepository.find({
+      where:{
+        nome: ILike(`%${nome}%`)
+      },
+      relations: {
+        turma: true,
+      }
+    })
+
+    return usuarios;
   }
 
   async findOneByEmail(email: string): Promise<Usuario> {

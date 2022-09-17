@@ -23,9 +23,6 @@ export class UsuarioController {
   @ApiBearerAuth()
   async findAll(): Promise<Usuario[]> {
     const respo = await this.usuarioService.findAll();
-
-    console.log(respo)
-
     return respo
   }
 
@@ -45,6 +42,15 @@ export class UsuarioController {
   @ApiBearerAuth()
   findByuser(@Param('email') email: string): Promise<Usuario> {
     return this.usuarioService.findOneByEmail(email);
+  }
+
+  @Get('nome-like/:nome')
+  @HttpCode(HttpStatus.OK)
+  @ApiResponse({type: [Usuario]})
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  findByLikeNome(@Param('nome') nome: string): Promise<Usuario[]> {
+    return this.usuarioService.findAllByLikeName(nome);
   }
 
   @Put()
